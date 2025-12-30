@@ -2,6 +2,8 @@ cas na zrobienie - do 22 styczeń 2025 12:00
 
 Zarządzanie kolekcją obiektów
   - dodawanie nowych obiektów
+    - <s>implementacja</s>
+    - opcja w menu
   - edycja wybranego obiektu, z uwzględnieniem ewentualnych ograniczeń (np. pola nieedytowalne)
   - usuwanie pojedynczego obiektu
   - usuwanie wielu obiektów spełniających wybrane kryterium
@@ -23,8 +25,8 @@ Prezentacja danych
 
 Trwałość danych
   - zapis całej kolekcji obiektów do pliku tekstowego lub binarnego
-  - odczyt danych z pliku i odtworzenie kolekcji obiektów w pamięci
+  - <s>odczyt danych z pliku i odtworzenie kolekcji obiektów w pamięci</s>
   - obsługa błędów związanych z plikami (brak pliku, niezgodny format, przerwane dane) w sposób kontrolowany
-  - ścieżki/nazwy plików używane do zapisu/odczytu muszą być przekazywane jako parametry wywołania programu
+  - <s>ścieżki/nazwy plików używane do zapisu/odczytu muszą być przekazywane jako parametry wywołania programu</s>
 
 
