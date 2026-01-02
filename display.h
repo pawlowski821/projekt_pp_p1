@@ -3,6 +3,6 @@
 
 #include "types.h"
 
-void creatureList_simplePrint(Creature* head);
+void creatureList_print(Creature* head);
 
 #endif
