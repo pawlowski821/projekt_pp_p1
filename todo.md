@@ -4,7 +4,7 @@ Zarządzanie kolekcją obiektów
   - dodawanie nowych obiektów
     - <s>implementacja</s>
     - opcja w menu
-  - edycja wybranego obiektu, z uwzględnieniem ewentualnych ograniczeń (np. pola nieedytowalne)
+  - <s>edycja wybranego obiektu, z uwzględnieniem ewentualnych ograniczeń (np. pola nieedytowalne)</s>
   - usuwanie pojedynczego obiektu
   - usuwanie wielu obiektów spełniających wybrane kryterium
   - usuwanie obiektów, które spełniają określone warunki wykluczające (jeśli przewiduje to temat projektu)
@@ -21,7 +21,7 @@ Sortowanie
   - sortowanie musi działać poprawnie niezależnie od liczby obiektów
 
 Prezentacja danych
-  - wyświetlanie pełnej listy obiektów oraz wyników wyszukiwania w formie czytelnych zestawień
+  - <s>wyświetlanie pełnej listy obiektów oraz wyników wyszukiwania w formie czytelnych zestawień</s>
 
 Trwałość danych
   - zapis całej kolekcji obiektów do pliku tekstowego lub binarnego
