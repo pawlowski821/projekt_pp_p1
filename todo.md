@@ -1,7 +1,7 @@
 cas na zrobienie - do 22 styczeń 2025 12:00
 
 Zarządzanie kolekcją obiektów
-  - <s>dodawanie nowych obiektów<s>
+  - <s>dodawanie nowych obiektów</s>
   - <s>edycja wybranego obiektu, z uwzględnieniem ewentualnych ograniczeń (np. pola nieedytowalne)</s>
   - <s>usuwanie pojedynczego obiektu</s>
   - <s>usuwanie wielu obiektów spełniających wybrane kryterium</s>
