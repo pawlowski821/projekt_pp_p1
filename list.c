@@ -46,3 +46,99 @@ Creature* creatureList_findByName(Creature* head, const char* name){
     }
     return NULL;
 }
+
+bool creatureList_deleteByName(Creature** head, const char* name){
+    if(head == NULL) return false;
+    Creature** ptr = head;
+    while(*ptr != NULL){
+        if(!strcmp((*ptr)->name, name)){
+            Creature* next = (*ptr)->next;
+            free(*ptr);
+            *ptr = next;
+            return true;
+        }
+        ptr = &(*ptr)->next;
+    }
+    return false;
+}
+
+int creatureList_deleteByMagicPowerLessThan(Creature** head, float magic_power){
+    if(head == NULL) return 0;
+    Creature** ptr = head;
+    int n = 0;
+    while(true){
+        while(*ptr != NULL && (*ptr)->magic_power < magic_power){
+            Creature* next = (*ptr)->next;
+            free(*ptr);
+            *ptr = next;
+            n++;
+        }
+        if(*ptr == NULL) break;
+        ptr = &(*ptr)->next;
+    }
+    return n;
+}
+
+Creature* creatureList_filterBySpecies(const Creature* head, const char* species){
+    Creature* new_head = NULL;
+    Creature* new_tail = NULL;
+    for(const Creature* cr = head; cr != NULL; cr = cr->next){
+        if(!strcmp(cr->gatunek, species)){
+            Creature* copy = calloc(1, sizeof(*copy));
+            memcpy(copy, cr, sizeof(*copy));
+            copy->next = NULL;
+            if(new_head == NULL){
+                new_head = copy;
+                new_tail = copy;
+            }
+            else{
+                new_tail->next = copy;
+                new_tail = copy;
+            }
+        }
+    }
+    return new_head;
+}
+
+Creature* creatureList_filterBySpeciesPrefix(const Creature* head, const char* species_prefix){
+    Creature* new_head = NULL;
+    Creature* new_tail = NULL;
+    size_t prefix_len = strlen(species_prefix);
+    for(const Creature* cr = head; cr != NULL; cr = cr->next){
+        if(strlen(cr->gatunek) >= prefix_len && !memcmp(cr->gatunek, species_prefix, prefix_len)){
+            Creature* copy = calloc(1, sizeof(*copy));
+            memcpy(copy, cr, sizeof(*copy));
+            copy->next = NULL;
+            if(new_head == NULL){
+                new_head = copy;
+                new_tail = copy;
+            }
+            else{
+                new_tail->next = copy;
+                new_tail = copy;
+            }
+        }
+    }
+    return new_head;
+}
+
+Creature* creatureList_filterByDangerLevel(const Creature* head, int danger_level){
+    Creature* new_head = NULL;
+    Creature* new_tail = NULL;
+    for(const Creature* cr = head; cr != NULL; cr = cr->next){
+        if(cr->danger_level == danger_level){
+            Creature* copy = calloc(1, sizeof(*copy));
+            memcpy(copy, cr, sizeof(*copy));
+            copy->next = NULL;
+            if(new_head == NULL){
+                new_head = copy;
+                new_tail = copy;
+            }
+            else{
+                new_tail->next = copy;
+                new_tail = copy;
+            }
+        }
+    }
+    return new_head;
+}

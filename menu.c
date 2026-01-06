@@ -61,6 +61,45 @@ size_t askForText(const char* ask_text, const char* error_text, char* dest, size
     }
 }
 
+CreatureState askForCreatureState(void){
+    return (CreatureState)askForInt(
+        "Podaj nowy stan stworzenia: \n"
+        " 1) stabilny\n"
+        " 2) niespokojny\n"
+        " 3) agresywny\n"
+        " 4) niebezpieczny\n"
+        " 5) w kwarantanie\n"
+        ": ",
+        "Niepoprawny stan stworzenia",
+        creature_state_first + 1,
+        creature_state_count 
+    ) - 1;
+}
+
+Creature askForUniqueCreature(Creature* head){
+    Creature cr = {0};
+    puts("== nowe stworzenie ==");
+    while(true){
+        askForText("  Podaj nazwe stworzenia: ", "Niepoprawna nazwa", cr.name, NAME_TEXT_SIZE);
+        if(creatureList_findByName(head, cr.name) == NULL) break;
+        puts("Stworzenie o tej nazwie juz istnieje");
+    }
+    askForText("  Podaj gatunek stworzenia: ", "Niepoprawny gatunek", cr.gatunek, GATUNEK_TEXT_SIZE);
+    while(true){
+        askForText("  Podaj date ostatniego karmiena: ", "Niepoprawna data", cr.last_feeding_date, DATE_TEXT_SIZE);
+        if(isValidDate(cr.last_feeding_date)) break;
+        puts("Niepoprawna data, oczekiwano formatu yyyy-mm-dd");
+    }
+    while(true){
+        cr.magic_power = askForFloat("  Podaj moc magiczna: ");
+        if(isValidMagicPower(cr.magic_power)) break;
+        puts("Niepoprawna wartosc mocy magicznej");
+    }
+    cr.danger_level = askForInt("  Podaj poziom niebezpieczenstwa: ", "Niepoprawny poziom niebezpieczenstwa", DANGER_LEVEL_MIN, DANGER_LEVEL_MAX);
+    cr.state = askForCreatureState();
+    return cr;
+}
+
 void runEditMenu(Creature* cr){
     while(true){
         int opcja = 0;
@@ -127,17 +166,7 @@ void runEditMenu(Creature* cr){
                 puts("Stworzenie niest w stanie niebezpiecznym, zmiana tego pola wymaga specialnych procedur.");
                 break;
             }
-            cr->state = (CreatureState)askForInt(
-                "Podaj nowy stan stworzenia: \n"
-                " 1) stabilny\n"
-                " 2) niespokojny\n"
-                " 3) agresywny\n"
-                " 4) niebezpieczny\n"
-                " 5) w kwarantanie\n",
-                "Niepoprawny stan stworzenia",
-                creature_state_first + 1,
-                creature_state_count 
-            ) - 1;
+            cr->state = askForCreatureState();
             break;
         }
     }
@@ -148,23 +177,26 @@ void runManagementMenu(Creature** head){
         int opcja = askForInt(
             "\n"
             "== menu zarzadzania ==\n"
-            " 1. dodaj stworzenie\n"
-            " 2. edytuj informacje o stworzeniu\n"
-            " 3. usun stworzenie\n"
-            " 4. wyswietl liste\n"
+            " 1. wyswietl liste\n"
+            " 2. dodaj stworzenie\n"
+            " 3. edytuj informacje o stworzeniu\n"
+            " 4. usun stworzenie (po nazwie)\n"
+            " 5. usun stworzenie (moc magiczna ponizej wartosci)\n"
             " 0. powrot\n"
             ": ",
             "Niepoprawna opcja",
-            0, 4
+            0, 5
         );
 
         if(opcja == 0) break;
 
         switch(opcja){
-        case 1:
-            // addCreature(head);
-            break;
         case 2:
+            Creature cr = askForUniqueCreature(*head);
+            creatureList_append(head, &cr);
+            puts("== dodano nowe stworzenie ==");
+            break;
+        case 3:
             {
                 char name[NAME_TEXT_SIZE];
                 askForText("Podaj nazwe stworzenia: ", "Niepoprawna nazwa stworzenia", name, NAME_TEXT_SIZE);
@@ -173,10 +205,31 @@ void runManagementMenu(Creature** head){
                 else runEditMenu(creature);
             }
             break;
-        case 3:
-            // runDeleteMenu(head);
-            break;
         case 4:
+            {
+                char name[NAME_TEXT_SIZE];
+                askForText("Podaj nazwe stowrzenia do usuniecia: ", "Niepoprawna nazwa stworzenia", name, NAME_TEXT_SIZE);
+                if(creatureList_deleteByName(head, name)){
+                    puts("== usunieto stowrzenie ==");
+                }
+                else{
+                    puts("== nie znaleziono stworzenia o takiej nazwie ==");
+                }
+            }
+            break;
+        case 5:
+            {
+                float power = askForFloat("Podaj moc magiczna: ");
+                int n = creatureList_deleteByMagicPowerLessThan(head, power);
+                if(n > 0){
+                    printf("== usunieto stowrzen: %i ==\n", n);
+                }
+                else{
+                    printf("== nie znaleziono zadnego stworzenia o mocy magicznej ponizej %.2f ==\n", power);
+                }
+            }
+            break;
+        case 1:
             creatureList_print(*head);
             break;
         }
@@ -188,32 +241,47 @@ void runSearchMenu(Creature** head){
         int opcja = askForInt(
             "\n"
             "== menu wyszukiwania ==\n"
-            " 1. wyszukiwanie po gatunku (pelne)\n"
-            " 2. wyszukiwanie po gatunku (prefiksowe)\n"
-            " 3. wyszukiwanie po poziomie niebezpieczenstwa\n"
+            " 1. wyswietl liste\n"
+            " 2. wyszukiwanie po gatunku (pelne)\n"
+            " 3. wyszukiwanie po gatunku (prefiksowe)\n"
+            " 4. wyszukiwanie po poziomie niebezpieczenstwa\n"
             " 0. powrot\n"
             ": ",
             "Niepoprawna opcja",
-            0, 3
+            0, 4
         );
 
         if(opcja == 0) break;
 
         switch(opcja){
-        case 1:
-            // Creature* filtered = creatureList_filterBySpecies(head, species);
-            // creatureList_print(filtered);
-            // creatureList_free(filtered);
-            break;
         case 2:
-            // Creature* filtered = creatureList_filterBySpeciesPrefix(head, species);
-            // creatureList_print(filtered);
-            // creatureList_free(filtered);
+            {
+                char species[GATUNEK_TEXT_SIZE];
+                askForText("Podaj gatunek: ", "Niepoprawny gatunek", species, GATUNEK_TEXT_SIZE);
+                Creature* filtered = creatureList_filterBySpecies(*head, species);
+                creatureList_print(filtered);
+                creatureList_free(&filtered);
+            }
             break;
         case 3:
-            // Creature* filtered = creatureList_filterByDangerLevel(head, danger_level);
-            // creatureList_print(filtered);
-            // creatureList_free(filtered);
+            {
+                char species[GATUNEK_TEXT_SIZE];
+                askForText("Podaj gatunek: ", "Niepoprawny gatunek", species, GATUNEK_TEXT_SIZE);
+                Creature* filtered = creatureList_filterBySpeciesPrefix(*head, species);
+                creatureList_print(filtered);
+                creatureList_free(&filtered);
+            }
+            break;
+        case 4:
+            {
+                int danger_level = askForInt("Podaj poziom niebezpieczenstwa: ", "Niepoprawny poziom niebezpieczenstwa", DANGER_LEVEL_MIN, DANGER_LEVEL_MAX);
+                Creature* filtered = creatureList_filterByDangerLevel(*head, danger_level);
+                creatureList_print(filtered);
+                creatureList_free(&filtered);
+            }
+            break;
+        case 1:
+            creatureList_print(*head);
             break;
         }
     }
@@ -224,9 +292,9 @@ void runSortingMenu(Creature** head){
         int opcja = askForInt(
             "\n"
             "== menu sortowania ==\n"
-            " 1. sortowanie po nazwie\n"
-            " 2. sortowanie po mocy magicznej\n"
-            " 3. wyswietl liste\n"
+            " 1. wyswietl liste\n"
+            " 2. sortowanie po nazwie\n"
+            " 3. sortowanie po mocy magicznej\n"
             " 0. powrot\n"
             ": ",
             "Niepoprawna opcja",
@@ -236,13 +304,13 @@ void runSortingMenu(Creature** head){
         if(opcja == 0) break;
 
         switch(opcja){
-        case 1:
+        case 2:
             // creatureList_sortByName(head);
             break;
-        case 2:
+        case 3:
             // creatureList_sortByMagicPower(head);
             break;
-        case 3:
+        case 1:
             creatureList_print(*head);
             break;
         }
@@ -254,29 +322,31 @@ void runMenu(Creature** head){
         int opcja = askForInt(
             "\n"
             "== menu glowne ==\n"
-            " 1. zarzadzanie\n"
-            " 2. wyszukiwanie\n"
-            " 3. sortowanie\n"
-            " 4. wyswietl liste\n"
+            " 1. wyswietl liste\n"
+            " 2. zarzadzanie\n"
+            " 3. wyszukiwanie\n"
+            " 4. sortowanie\n"
             " 0. zapisz zmiany i zakoncz\n"
+            "-1. odrzuc zmiany i zakoncz\n"
             ": ",
             "Niepoprawna opcja",
-            0, 4
+            -1, 4
         );
 
         if(opcja == 0) break;
+        if(opcja == -1) break;
 
         switch(opcja){
-        case 1:
+        case 2:
             runManagementMenu(head);
             break;
-        case 2:
+        case 3:
             runSearchMenu(head);
             break;
-        case 3:
+        case 4:
             runSortingMenu(head);
             break;
-        case 4:
+        case 1:
             creatureList_print(*head);
             break;
         }

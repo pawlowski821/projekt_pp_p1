@@ -1,18 +1,16 @@
 cas na zrobienie - do 22 styczeń 2025 12:00
 
 Zarządzanie kolekcją obiektów
-  - dodawanie nowych obiektów
-    - <s>implementacja</s>
-    - opcja w menu
+  - <s>dodawanie nowych obiektów<s>
   - <s>edycja wybranego obiektu, z uwzględnieniem ewentualnych ograniczeń (np. pola nieedytowalne)</s>
-  - usuwanie pojedynczego obiektu
-  - usuwanie wielu obiektów spełniających wybrane kryterium
-  - usuwanie obiektów, które spełniają określone warunki wykluczające (jeśli przewiduje to temat projektu)
+  - <s>usuwanie pojedynczego obiektu</s>
+  - <s>usuwanie wielu obiektów spełniających wybrane kryterium</s>
+  - <s>usuwanie obiektów, które spełniają określone warunki wykluczające (jeśli przewiduje to temat projektu)</s>
 
 Wyszukiwanie i filtrowanie
-  - wyszukiwanie obiektów według co najmniej dwóch różnych kryteriów (jednego pola tekstowego i jednego pola liczbowego)
-  - wyszukiwanie tekstowe musi umożliwiać dopasowanie pełne lub prefiksowe
-  - Wyniki wyszukiwania muszą obejmować wszystkie obiekty spełniające kryteria.
+  - <s>wyszukiwanie obiektów według co najmniej dwóch różnych kryteriów (jednego pola tekstowego i jednego pola liczbowego)</s>
+  - <s>wyszukiwanie tekstowe musi umożliwiać dopasowanie pełne lub prefiksowe</s>
+  - <s>Wyniki wyszukiwania muszą obejmować wszystkie obiekty spełniające kryteria.</s>
 
 Sortowanie
   - sortowanie alfabetyczne według wybranego pola tekstowego

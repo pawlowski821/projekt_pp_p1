@@ -3,16 +3,16 @@
 #include "types.h"
 #include "display.h"
 
-void creatureList_print(Creature* head){
+void creatureList_print(const Creature* head){
     if(head == NULL){
-        printf("Pusta lista.");
+        puts("Pusta lista.");
         return;
     }
 
     int max_name_len    = 5;
     int max_species_len = 7;
 
-    for(Creature* cr = head; cr != NULL; cr = cr->next){
+    for(const Creature* cr = head; cr != NULL; cr = cr->next){
         int name_len = strlen(cr->name);
         if(name_len > max_name_len) max_name_len = name_len;
         int species_len = strlen(cr->gatunek);
@@ -20,7 +20,7 @@ void creatureList_print(Creature* head){
     }
 
     printf("%*s  %*s  karmiony    moc magiczna  niebezpieczenstwo  stan\n", -max_name_len, "nazwa", -max_species_len, "gatunek");
-    for(Creature* cr = head; cr != NULL; cr = cr->next){
+    for(const Creature* cr = head; cr != NULL; cr = cr->next){
         printf(
             "%*s  %*s  %-10s  %12.2f  %17i  %s\n",
             -max_name_len, cr->name,
