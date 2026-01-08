@@ -13,18 +13,18 @@ Wyszukiwanie i filtrowanie
   - <s>Wyniki wyszukiwania muszą obejmować wszystkie obiekty spełniające kryteria.</s>
 
 Sortowanie
-  - sortowanie alfabetyczne według wybranego pola tekstowego
-  - sortowanie według wybranego pola liczbowego
-  - sortowanie może być zrealizowane jako przepisanie danych do nowej struktury z zachowaniem wymaganego porządku, nie ma konieczności przestawiania elementów na strukturze oryginalnej  
-  - sortowanie musi działać poprawnie niezależnie od liczby obiektów
+  - <s>sortowanie alfabetyczne według wybranego pola tekstowego</s>
+  - <s>sortowanie według wybranego pola liczbowego</s>
+  - <s>sortowanie może być zrealizowane jako przepisanie danych do nowej struktury z zachowaniem wymaganego porządku, nie ma konieczności przestawiania elementów na strukturze oryginalnej</s>
+  - <s>sortowanie musi działać poprawnie niezależnie od liczby obiektów</s>
 
 Prezentacja danych
   - <s>wyświetlanie pełnej listy obiektów oraz wyników wyszukiwania w formie czytelnych zestawień</s>
 
 Trwałość danych
-  - zapis całej kolekcji obiektów do pliku tekstowego lub binarnego
+  - <s>zapis całej kolekcji obiektów do pliku tekstowego lub binarnego</s>
   - <s>odczyt danych z pliku i odtworzenie kolekcji obiektów w pamięci</s>
-  - obsługa błędów związanych z plikami (brak pliku, niezgodny format, przerwane dane) w sposób kontrolowany
+  - <s>obsługa błędów związanych z plikami (brak pliku, niezgodny format, przerwane dane) w sposób kontrolowany</s>
   - <s>ścieżki/nazwy plików używane do zapisu/odczytu muszą być przekazywane jako parametry wywołania programu</s>
 
 

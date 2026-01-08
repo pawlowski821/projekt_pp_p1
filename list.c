@@ -142,3 +142,51 @@ Creature* creatureList_filterByDangerLevel(const Creature* head, int danger_leve
     }
     return new_head;
 }
+
+void creatureList_sortByName(Creature** head){
+    if(head == NULL || *head == NULL || (*head)->next == NULL) return;
+    for(Creature* cr_prev = (*head); cr_prev != NULL && cr_prev->next != NULL;){
+        Creature* cr = cr_prev->next;
+
+        Creature** dest_ptr = head;
+        while(*dest_ptr != NULL && *dest_ptr != cr){
+            if(strcmp((*dest_ptr)->name, cr->name) > 0){
+                // usuń element z listy
+                cr_prev->next = cr->next;
+                // wstaw element w nowe miejsce w liście
+                cr->next = *dest_ptr;
+                *dest_ptr = cr;
+                // nie iteruj dalej w liste bo cr_prev->next się zmeinił
+                cr = cr_prev;
+                break;
+            }
+            dest_ptr = &(*dest_ptr)->next;
+        }
+
+        cr_prev = cr;
+    }
+}
+
+void creatureList_sortByMagicPower(Creature** head){
+    if(head == NULL || *head == NULL || (*head)->next == NULL) return;
+    for(Creature* cr_prev = (*head); cr_prev != NULL && cr_prev->next != NULL;){
+        Creature* cr = cr_prev->next;
+
+        Creature** dest_ptr = head;
+        while(*dest_ptr != NULL && *dest_ptr != cr){
+            if((*dest_ptr)->magic_power > cr->magic_power){
+                // usuń element z listy
+                cr_prev->next = cr->next;
+                // wstaw element w nowe miejsce w liście
+                cr->next = *dest_ptr;
+                *dest_ptr = cr;
+                // nie iteruj dalej w liste bo cr_prev->next się zmeinił
+                cr = cr_prev;
+                break;
+            }
+            dest_ptr = &(*dest_ptr)->next;
+        }
+
+        cr_prev = cr;
+    }    
+}

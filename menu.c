@@ -305,10 +305,12 @@ void runSortingMenu(Creature** head){
 
         switch(opcja){
         case 2:
-            // creatureList_sortByName(head);
+            creatureList_sortByName(head);
+            puts("== posortowano po nazwie ==");
             break;
         case 3:
-            // creatureList_sortByMagicPower(head);
+            creatureList_sortByMagicPower(head);
+            puts("== posortowano po mocy magicznej ==");
             break;
         case 1:
             creatureList_print(*head);

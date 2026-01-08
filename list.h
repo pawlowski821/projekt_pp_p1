@@ -18,4 +18,7 @@ Creature* creatureList_filterBySpecies(const Creature* head, const char* species
 Creature* creatureList_filterBySpeciesPrefix(const Creature* head, const char* species_prefix);
 Creature* creatureList_filterByDangerLevel(const Creature* head, int danger_level);
 
+void creatureList_sortByName(Creature** head);
+void creatureList_sortByMagicPower(Creature** head);
+
 #endif
