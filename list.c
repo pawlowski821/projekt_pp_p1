@@ -19,7 +19,7 @@ bool creatureList_append(Creature** head, const Creature* src){
 
     Creature* new_creature = calloc(1, sizeof(*new_creature));
     if(new_creature == NULL){
-        fprintf(stderr, "Alokacja pamieci sie nie powiodla");
+        fprintf(stderr, "Alokacja pamieci sie nie powiodla\n");
         return false;
     }
 
@@ -52,6 +52,10 @@ bool creatureList_deleteByName(Creature** head, const char* name){
     Creature** ptr = head;
     while(*ptr != NULL){
         if(!strcmp((*ptr)->name, name)){
+            if((*ptr)->state == creature_state_dangerous){
+                printf("Stworzenie %s jest w stanie niebezpiecznym, usuniecie go wymaga specialnych procedur.\n", (*ptr)->name);
+                return false;
+            }
             Creature* next = (*ptr)->next;
             free(*ptr);
             *ptr = next;
@@ -59,6 +63,7 @@ bool creatureList_deleteByName(Creature** head, const char* name){
         }
         ptr = &(*ptr)->next;
     }
+    printf("Nie znaleziono stworzenia o nazwie %s\n", name);
     return false;
 }
 
@@ -68,10 +73,16 @@ int creatureList_deleteByMagicPowerLessThan(Creature** head, float magic_power){
     int n = 0;
     while(true){
         while(*ptr != NULL && (*ptr)->magic_power < magic_power){
-            Creature* next = (*ptr)->next;
-            free(*ptr);
-            *ptr = next;
-            n++;
+            if((*ptr)->state == creature_state_dangerous){
+                printf("Stworzenie %s jest w stanie niebezpiecznym, usuniecie go wymaga specialnych procedur.\n", (*ptr)->name);
+                break;
+            }
+            else{
+                Creature* next = (*ptr)->next;
+                free(*ptr);
+                *ptr = next;
+                n++;
+            }
         }
         if(*ptr == NULL) break;
         ptr = &(*ptr)->next;
@@ -85,6 +96,11 @@ Creature* creatureList_filterBySpecies(const Creature* head, const char* species
     for(const Creature* cr = head; cr != NULL; cr = cr->next){
         if(!strcmp(cr->gatunek, species)){
             Creature* copy = calloc(1, sizeof(*copy));
+            if(copy == NULL){
+                fprintf(stderr, "Alokacja pamieci sie nie powiodla\n");
+                creatureList_free(&new_head);
+                return NULL;
+            }
             memcpy(copy, cr, sizeof(*copy));
             copy->next = NULL;
             if(new_head == NULL){
@@ -107,6 +123,11 @@ Creature* creatureList_filterBySpeciesPrefix(const Creature* head, const char* s
     for(const Creature* cr = head; cr != NULL; cr = cr->next){
         if(strlen(cr->gatunek) >= prefix_len && !memcmp(cr->gatunek, species_prefix, prefix_len)){
             Creature* copy = calloc(1, sizeof(*copy));
+            if(copy == NULL){
+                fprintf(stderr, "Alokacja pamieci sie nie powiodla\n");
+                creatureList_free(&new_head);
+                return NULL;
+            }
             memcpy(copy, cr, sizeof(*copy));
             copy->next = NULL;
             if(new_head == NULL){
@@ -128,6 +149,11 @@ Creature* creatureList_filterByDangerLevel(const Creature* head, int danger_leve
     for(const Creature* cr = head; cr != NULL; cr = cr->next){
         if(cr->danger_level == danger_level){
             Creature* copy = calloc(1, sizeof(*copy));
+            if(copy == NULL){
+                fprintf(stderr, "Alokacja pamieci sie nie powiodla\n");
+                creatureList_free(&new_head);
+                return NULL;
+            }
             memcpy(copy, cr, sizeof(*copy));
             copy->next = NULL;
             if(new_head == NULL){

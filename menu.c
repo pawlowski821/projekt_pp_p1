@@ -163,7 +163,7 @@ void runEditMenu(Creature* cr){
             break;
         case 6:
             if(cr->state == creature_state_dangerous){
-                puts("Stworzenie niest w stanie niebezpiecznym, zmiana tego pola wymaga specialnych procedur.");
+                puts("Stworzenie jest w stanie niebezpiecznym, zmiana tego pola wymaga specialnych procedur.");
                 break;
             }
             cr->state = askForCreatureState();
@@ -213,7 +213,7 @@ void runManagementMenu(Creature** head){
                     puts("== usunieto stowrzenie ==");
                 }
                 else{
-                    puts("== nie znaleziono stworzenia o takiej nazwie ==");
+                    puts("== usuwanie sie nie powiodlo ==");
                 }
             }
             break;
@@ -221,12 +221,7 @@ void runManagementMenu(Creature** head){
             {
                 float power = askForFloat("Podaj moc magiczna: ");
                 int n = creatureList_deleteByMagicPowerLessThan(head, power);
-                if(n > 0){
-                    printf("== usunieto stowrzen: %i ==\n", n);
-                }
-                else{
-                    printf("== nie znaleziono zadnego stworzenia o mocy magicznej ponizej %.2f ==\n", power);
-                }
+                printf("== usunieto stowrzen: %i ==\n", n);
             }
             break;
         case 1:
