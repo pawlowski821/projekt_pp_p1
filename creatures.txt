@@ -1,8 +1,400 @@
-Stefan
+Piotr
 smok
-2025-12-29
-60.5 8 0
-Adam
+2026-01-13
+27.958961 2 0
+Hanna
+feniks
+2025-12-12
+43.159420 7 4
+Zygfryd
+smok
+2025-12-09
+25.486637 4 4
+Leopold
+feniks
+2025-12-12
+5.782390 4 1
+Barbara
 gryf
+2025-12-11
+66.706345 10 0
+Eugenia
+pegaz
+2026-01-05
+61.137772 4 1
+Franciszka
+gryf
+2025-11-29
+81.993195 2 2
+Danuta
+smok
+2025-11-19
+45.775024 10 0
+Eryk
+smok
+2025-12-18
+4.558619 2 3
+Wioletta
+gryf
+2025-11-18
+5.708555 4 3
+Aneta
+smok
+2026-01-07
+84.990456 3 4
+Regina
+gryf
+2026-01-11
+48.150131 3 1
+Ewa
+gryf
+2025-12-01
+92.982956 0 3
+Wojciech
+pegaz
+2025-11-22
+3.182990 10 1
+Natalia
+feniks
+2026-01-14
+60.657825 0 0
+Wilhelm
+mantykora
 2025-12-30
-11.2 4 2
+14.943434 7 1
+Aleksy
+feniks
+2025-12-19
+39.022202 7 3
+Robert
+mantykora
+2025-11-17
+42.911892 0 0
+Leokadia
+smok
+2025-11-18
+79.456039 1 1
+Teofil
+pegaz
+2025-11-29
+52.336563 0 2
+Cecylia
+smok
+2025-11-21
+66.369720 6 1
+Jerzy
+smok
+2025-12-21
+59.088886 0 4
+Janusz
+mantykora
+2025-11-20
+89.711479 1 2
+Konstanty
+pegaz
+2025-11-27
+43.159073 0 3
+Mariusz
+pegaz
+2025-12-11
+50.325932 3 0
+Bogdan
+feniks
+2026-01-13
+57.438396 8 0
+Karolina
+smok
+2025-11-28
+1.129225 9 0
+Walerian
+feniks
+2026-01-01
+0.439247 4 1
+Sylwia
+gryf
+2025-11-10
+91.475601 3 4
+Alicja
+mantykora
+2025-12-01
+53.803684 9 4
+Katarzyna
+smok
+2025-11-13
+94.451675 1 1
+Sabina
+smok
+2025-11-20
+85.221001 8 1
+Florian
+gryf
+2025-11-23
+16.700247 9 4
+Adam
+smok
+2026-01-08
+80.728920 9 0
+Augustyn
+feniks
+2026-01-04
+74.128281 9 3
+Erwin
+smok
+2026-01-06
+68.981186 9 0
+Leszek
+smok
+2025-12-04
+68.321381 7 1
+Emilia
+smok
+2025-12-06
+26.430012 10 4
+Kazimiera
+gryf
+2025-12-18
+1.813221 10 2
+Jadwiga
+gryf
+2025-12-14
+52.187386 5 4
+Marzena
+smok
+2025-12-10
+26.806988 8 1
+Wanda
+gryf
+2025-12-04
+75.844940 10 3
+Zygmunt
+smok
+2025-11-15
+26.841215 3 3
+Brunon
+feniks
+2026-01-13
+59.532097 3 1
+Genowefa
+pegaz
+2026-01-08
+46.573166 10 1
+Henryk
+pegaz
+2025-12-08
+40.659496 6 3
+Maksymilian
+smok
+2025-11-11
+98.199844 4 2
+Dariusz
+smok
+2025-11-11
+49.019447 0 3
+Tomasz
+pegaz
+2026-01-12
+7.073740 7 3
+Fryderyk
+gryf
+2025-11-27
+74.939102 4 4
+Roman
+gryf
+2025-12-27
+31.958170 4 3
+Jan
+smok
+2025-12-30
+69.053558 0 4
+Aniela
+gryf
+2025-11-12
+50.972912 8 4
+Bohdan
+pegaz
+2025-12-18
+90.784836 7 3
+Iwona
+smok
+2026-01-09
+94.019081 4 0
+Krzysztof
+pegaz
+2025-11-24
+14.325331 0 4
+Krystyna
+pegaz
+2025-12-11
+48.494816 9 4
+Marianna
+gryf
+2025-12-18
+42.542728 5 3
+Teresa
+gryf
+2026-01-06
+94.390274 8 0
+Eugeniusz
+smok
+2025-11-10
+91.638412 5 1
+Antonina
+gryf
+2025-12-20
+17.810411 7 2
+Agnieszka
+pegaz
+2025-11-26
+97.551666 7 0
+Kazimierz
+feniks
+2026-01-14
+8.444695 7 0
+Celina
+smok
+2025-11-19
+10.661890 6 2
+Seweryn
+smok
+2026-01-14
+63.544388 2 0
+Izabela
+feniks
+2025-12-19
+91.741371 1 2
+Monika
+feniks
+2026-01-14
+29.907574 1 3
+Helena
+gryf
+2025-12-19
+95.766571 2 2
+Weronika
+gryf
+2025-12-06
+58.200512 1 3
+Jacek
+pegaz
+2025-12-01
+60.980064 1 0
+Edyta
+gryf
+2025-12-31
+17.211864 0 3
+Antoni
+pegaz
+2026-01-14
+28.486647 6 1
+Janina
+mantykora
+2025-12-22
+51.879726 3 3
+Marian
+feniks
+2026-01-08
+36.988636 6 3
+Henryka
+feniks
+2025-12-13
+56.690079 0 1
+Renata
+feniks
+2025-12-04
+86.388741 8 0
+Franciszek
+feniks
+2025-11-21
+89.934113 2 0
+Joanna
+mantykora
+2025-12-16
+79.573135 0 0
+Edward
+gryf
+2025-11-24
+50.187946 2 2
+Stefan
+mantykora
+2026-01-06
+3.406335 10 1
+Olga
+feniks
+2026-01-09
+62.465786 4 1
+Juliusz
+smok
+2025-11-20
+66.972717 1 2
+Ryszard
+pegaz
+2025-11-16
+94.147392 7 4
+Urszula
+gryf
+2026-01-02
+92.957558 5 0
+Maria
+pegaz
+2026-01-13
+39.767933 9 3
+Albin
+feniks
+2025-12-18
+70.153313 9 2
+Grzegorz
+smok
+2026-01-07
+31.736692 6 1
+Dominik
+pegaz
+2025-12-22
+81.665123 3 4
+Longin
+mantykora
+2025-11-12
+89.729202 1 4
+Alfreda
+feniks
+2025-11-17
+72.165062 5 1
+Ilona
+feniks
+2025-12-22
+98.244751 8 4
+Justyna
+smok
+2025-12-22
+49.200760 2 0
+Bernadeta
+gryf
+2026-01-10
+92.205780 6 0
+Beata
+feniks
+2025-12-23
+18.494593 7 2
+Anna
+mantykora
+2025-11-18
+2.256261 6 4
+Stefania
+gryf
+2025-12-09
+86.667450 4 0
+Zenon
+smok
+2025-11-14
+74.605743 3 1
+Agata
+smok
+2025-12-18
+21.393867 3 2
+Rozalia
+pegaz
+2025-11-24
+88.046471 10 2
+Marek
+mantykora
+2025-12-27
+46.397591 1 1

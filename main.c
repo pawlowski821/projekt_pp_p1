@@ -18,7 +18,12 @@ int main(int argc, char** argv){
         return 1;
     }
 
-    runMenu(&head);
+    if(runMenu(&head)){
+        if(!creatureList_writeToFile(head, file_path)){
+            creatureList_free(&head);
+            return 1;
+        }
+    }
 
     creatureList_free(&head);
     return 0;

@@ -317,7 +317,7 @@ void runSortingMenu(Creature** head){
     }
 }
 
-void runMenu(Creature** head){
+bool runMenu(Creature** head){
     while(true){
         int opcja = askForInt(
             "\n"
@@ -333,8 +333,8 @@ void runMenu(Creature** head){
             -1, 4
         );
 
-        if(opcja == 0) break;
-        if(opcja == -1) break;
+        if(opcja == 0) return true;
+        if(opcja == -1) return false;
 
         switch(opcja){
         case 2:

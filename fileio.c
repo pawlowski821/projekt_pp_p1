@@ -127,8 +127,30 @@ bool creatureList_loadFromFile(Creature** head, const char* path){
     return true;
 }
 
-bool creatureList_writeToFile(Creature* head, const char* path){
-    fprintf(stderr, "TODO: creatureList_writeToFile\n");
-    return false;
+bool creatureList_writeToFile(const Creature* head, const char* path){
+    FILE* fout = fopen(path, "w");
+    if(fout == NULL){
+        fprintf(stderr, "Nie udalo sie otworzyc pliku \"%s\" do zapisu: %s\n", path, strerror(errno));
+        return false;
+    }
+
+    for(const Creature* cr = head; cr != NULL; cr = cr->next){
+        fprintf(
+            fout,
+            "%s\n"
+            "%s\n"
+            "%s\n"
+            "%f %i %i\n",
+            cr->name,
+            cr->gatunek,
+            cr->last_feeding_date,
+            cr->magic_power,
+            cr->danger_level,
+            cr->state
+        );
+    }
+
+    fclose(fout);
+    return true;
 }
 
